@@ -1,1 +1,1 @@
-Excercise from Azure DevOps training
+Excercise from Azure DevOps training, changes
