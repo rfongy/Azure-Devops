@@ -1,0 +1,20 @@
+version: '3.6'
+
+services:
+  modernapiapp:
+    image: modernapiapp
+    build:
+      context: .
+      dockerfile: apiapp.Dockerfile
+    ports:
+    - 8080:80
+    depends_on:
+      - modernapiapp.database
+  modernapiapp.database:
+    image: modernapiapp.database
+    build:
+      context: ModernApiApp.Database
+      dockerfile: sql.Dockerfile
+    ports:
+      - "5434:1433"
+

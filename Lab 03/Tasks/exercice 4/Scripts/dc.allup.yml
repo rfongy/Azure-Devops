@@ -1,0 +1,28 @@
+version: '3.6'
+
+services:
+  modernuiapp:
+    image: modernuiapp
+    build:
+      context: ./ModernUIAppSolution
+      dockerfile: ui.Dockerfile
+    ports:
+    - 80:80
+  modernapiapp:
+    image: modernapiapp
+    build:
+      context: ./ModernApiAppSolution
+      dockerfile: apiapp.Dockerfile
+    ports:
+    - 8080:80
+    depends_on:
+      - modernapiapp.database
+  modernapiapp.database:
+    image: modernapiapp.database
+    build:
+      context: ./ModernApiAppSolution/ModernApiApp.Database
+      dockerfile: sql.Dockerfile
+    ports:
+      - "5434:1433"
+
+

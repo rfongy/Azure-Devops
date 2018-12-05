@@ -1,0 +1,1 @@
+scripts/SqlCmdStartup.sh & /opt/mssql/bin/sqlservr  ##& /opt/mssql/bin/sqlservr ##& npm start
